@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Add } from '@mui/icons-material';
 
 function YourBotArmy({ botId }) {
   const [bot, setBot] = useState(null); 
@@ -54,7 +55,12 @@ function YourBotArmy({ botId }) {
             <p>Catchphrase: {bot.catchphrase}</p>
             <p>Created At: {new Date(bot.created_at).toLocaleString()}</p>
             <p>Updated At: {new Date(bot.updated_at).toLocaleString()}</p>
-            <button className='py-4 px-4 bg-red-600 rounded-md text-white' onClick={handleDelete}><DeleteIcon /></button>
+            <div className='flex flex-row w-full justify-between'>
+              <button className='py-4 px-4 bg-red-600 rounded-md text-white' onClick={handleDelete}><DeleteIcon /></button>
+              <button className='py-4 px-4 bg-blue-600 rounded-md text-white' ><Add /></button>
+            </div>
+            
+
           </div>
         ) : (
           <p>No bot information available.</p>
