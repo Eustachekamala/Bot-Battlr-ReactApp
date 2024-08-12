@@ -35,38 +35,37 @@ function YourBotArmy({ botId }) {
   if (botDeleted) {
     return (
       <div>
-        <p className='bg-blue-400 py-4 px-4 rounded-md text-white'>Bot has been deleted.</p>
+        <p className='bg-blue-400 py-4 px-4 rounded-md text-white shadow-gray-300'>Bot has been deleted.</p>
       </div>
     );
   }
 
   return (
-    <div>
-      <div>
-        {/* Display bot details if available */}
-        {bot ? (
-          <div className=' flex flex-col items-center justify-center bg-white p-4 rounded-md shadow-md m-auto'>
-            <img className='w-56 h-56 bg-blue-600 rounded-md py-4 px-4' src={bot.avatar_url} alt="bot avatar" />
-            <h2>{bot.name}</h2>
-            <p>Health: {bot.health}</p>
-            <p>Damage: {bot.damage}</p>
-            <p>Armor: {bot.armor}</p>
-            <p>Class: {bot.bot_class}</p>
-            <p>Catchphrase: {bot.catchphrase}</p>
-            <p>Created At: {new Date(bot.created_at).toLocaleString()}</p>
-            <p>Updated At: {new Date(bot.updated_at).toLocaleString()}</p>
-            <div className='flex flex-row w-full justify-between'>
-              <button className='py-4 px-4 bg-red-600 rounded-md text-white' onClick={handleDelete}><DeleteIcon /></button>
-              <button className='py-4 px-4 bg-blue-600 rounded-md text-white' ><Add /></button>
+      <>
+          {/* Display bot details if available */}
+          {bot ? (
+            <div className='flex flex-col items-center justify-center bg-white p-3 rounded-md w-full shadow m-2 mx-auto'>
+              <img className='w-32 h-32 bg-blue-600 rounded-md py-4 px-4' src={bot.avatar_url} alt="bot avatar" />
+              <h2 className='text-2xl font-bold'>{bot.name}</h2>
+              <div className='grid grid-cols-2  w-4/5 justify-center text-center'>
+                <p>Health: {bot.health}</p>
+                <p>Damage: {bot.damage}</p>
+                <p>Armor: {bot.armor}</p>
+                <p>Class: {bot.bot_class}</p>
+              </div>
+              
+              <p className='text-xs text-bold text-gray-500'>{bot.catchphrase}</p>
+              <p>Created At: {new Date(bot.created_at).toLocaleString()}</p>
+              <p>Updated At: {new Date(bot.updated_at).toLocaleString()}</p>
+              <div className='flex flex-row justify-between w-24'>
+                <button className='py-2 px-2 bg-red-600 rounded-md text-white' onClick={handleDelete}><DeleteIcon /></button>
+                <button className='py-2 px-2 bg-blue-600 rounded-md text-white' ><Add /></button>
+              </div>
             </div>
-            
-
-          </div>
-        ) : (
-          <p>No bot information available.</p>
-        )}
-      </div>
-    </div>
+          ) : (
+            <p>No bot information available.</p>
+          )}
+      </>
   );
 }
 

@@ -15,13 +15,16 @@ function BotCollection() {
   }, []); 
 
   return (
-    <div className='flex flex-col items-center justify-center'>
+    <div className='flex flex-col items-center justify-center '>
       <h1 className='text-white text-center text-4xl font-bold bg-blue-600 w-full py-4 px-4'>Bot Collection</h1>
-      <div className='grid grid-cols-3 gap-4 w-full'>
-        {bots.map(bot => (
-          <YourBotArmy className="h-80" key={bot.id} botId={bot.id} />
-        ))}
+      <div className='ml-96'>
+          <div className='grid grid-cols-3 gap-4 w-full my-8 p-8 h-96 overflow-y-scroll overflow-x-hidden'>
+          {bots.map(bot => (
+            <YourBotArmy key={bot.id} botId={bot.id} />
+          ))}
+        </div>
       </div>
+      
     </div>
   );
 }
