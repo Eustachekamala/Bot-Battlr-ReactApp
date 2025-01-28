@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
+import PropTypes from "prop-types"
 
 function YourBotArmy({ botId, onAddBot, onReleaseBot }) {
   const [bot, setBot] = useState(null);
@@ -71,6 +72,13 @@ function YourBotArmy({ botId, onAddBot, onReleaseBot }) {
       </div>
     </div>
   );
+}
+
+
+YourBotArmy.propTypes = {
+  botId : PropTypes.number,
+  onAddBot : PropTypes.func,
+  onReleaseBot : PropTypes.func
 }
 
 export default YourBotArmy;
